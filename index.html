@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An0nOtF V3💎 - Professional Pairing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff00d6;
+            --accent: #00ff88;
+            --dark: #0a0a1f;
+            --darker: #050510;
+            --text: #ffffff;
+            --text-secondary: #b8b8d0;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #1a1a2e 100%);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 240, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(0, 240, 255, 0.8), 0 0 40px rgba(255, 0, 214, 0.6); }
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .tab-container {
+            background: rgba(10, 10, 31, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .tab-header {
+            display: flex;
+            background: linear-gradient(90deg, var(--darker), rgba(0, 240, 255, 0.1), var(--darker));
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            background: rgba(0, 240, 255, 0.1);
+        }
+
+        .tab-button.active::before {
+            width: 100%;
+        }
+
+        .tab-button:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step {
+            background: rgba(5, 5, 16, 0.6);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .step-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4em;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-title i {
+            font-size: 1.2em;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1em;
+            font-family: 'Exo 2', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 0, 214, 0.2);
+            color: var(--text);
+            border: 1px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 0, 214, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 0, 214, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, var(--accent), #00cc6a);
+            color: var(--dark);
+        }
+
+        .code-display {
+            font-family: 'Orbitron', monospace;
+            font-size: 3em;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid rgba(0, 240, 255, 0.3);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            animation: shine 2s infinite;
+        }
+
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid rgba(0, 240, 255, 0.2);
+        }
+
+        #qrCode {
+            width: 250px;
+            height: 250px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .qr-container p {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-secondary);
+        }
+
+        .code-textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .code-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .status-message {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .status-waiting {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid #ffc107;
+            color: #ffc107;
+        }
+
+        .status-success {
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .status-error {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-group .btn {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .instructions {
+            background: rgba(0, 240, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .audio-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            color: var(--dark);
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 2.5em; }
+            .tab-button { padding: 15px 10px; font-size: 0.9em; }
+            .tab-content { padding: 20px; }
+            .code-display { font-size: 2em; }
+            #qrCode { width: 200px; height: 200px; }
+            .btn-group { flex-direction: column; }
+            .btn-group .btn { min-width: auto; }
+        }
+
+        .particle {
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <audio id="bgAudio" loop>
+        <source src="An0nOtF.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                An0nOtF V3💎
+            </div>
+            <div class="subtitle">An0n0tf WhatsApp Bot Pairing Panel | Developed by Tylor 💎</div>
+        </div>
+
+        <div class="tab-container">
+            <div class="tab-header">
+                <button class="tab-button active" onclick="showTab('pairing')">
+                    <i class="fas fa-link"></i> Pair Device
+                </button>
+                <button class="tab-button" onclick="showTab('session')">
+                    <i class="fas fa-code"></i> Session Data
+                </button>
+                <button class="tab-button" onclick="showTab('config')">
+                    <i class="fas fa-cog"></i> Complete Config
+                </button>
+            </div>
+
+            <div id="pairing" class="tab-content active">
+                <div class="step">
+                    <div class="step-title">
+                        <i class="fas fa-mobile-alt"></i>
+                        Enter Your Phone Number
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">WhatsApp Number</label>
+                        <input type="tel" id="phoneNumber" class="input-field" placeholder="254111255045" required>
+                    </div>
+                    <button class="btn btn-primary" onclick="generateCode()">
+                        <i class="fas fa-bolt"></i> Generate Pairing Code
+                    </button>
+                    <div class="instructions" style="margin-top: 20px;">
+                        <p><i class="fas fa-info-circle"></i> Choose pairing method:</p>
+                        <ul>
+                            <li><strong>Pairing Code:</strong> Enter code in WhatsApp</li>
+                            <li><strong>QR Code:</strong> Scan QR if code doesn't work</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="pairingResult"></div>
+            </div>
+
+            <div id="session" class="tab-content">
+                <div class="step">
+                    <div class="step-title">
+                        <i class="fas fa-database"></i>
+                        Session Data
+                    </div>
+                    <p>Copy this JSON to your An0nOtF-session.json file:</p>
+                    <textarea id="sessionData" class="code-textarea" readonly 
+                              placeholder="An0nOtF session data will appear here after successful pairing..."></textarea>
+                    <div class="btn-group">
+                        <button class="btn btn-success" onclick="copySessionData()">
+                            <i class="fas fa-copy"></i> Copy Session JSON
+                        </button>
+                        <button class="btn btn-primary" onclick="downloadSessionFile()">
+                            <i class="fas fa-download"></i> Download Session File
+                        </button>
+                        <button class="btn btn-secondary" onclick="loadSessionData()">
+                            <i class="fas fa-sync"></i> Refresh Session
+                        </button>
+                    </div>
+                    <div id="sessionStatus"></div>
+                    
+                    <div class="instructions">
+                        <h4><i class="fas fa-info-circle"></i> How to Use:</h4>
+                        <ol>
+                            <li>Session will be sent to your WhatsApp after pairing</li>
+                            <li>Copy JSON from WhatsApp OR download here</li>
+                            <li>Save as <code>An0nOtF-session.json</code></li>
+                            <li>Place in your bot folder</li>
+                            <li>Use with <code>useSingleFileAuthState("./An0nOtF-session.json")</code></li>
+                            <li>Start your bot - No QR needed!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div id="config" class="tab-content">
+                <div class="step">
+                    <div class="step-title">
+                        <i class="fas fa-file-code"></i>
+                        Complete Configuration
+                    </div>
+                    <p>Replace your entire config.js file with this content:</p>
+                    <textarea id="fullConfig" class="code-textarea" readonly 
+                              placeholder="Complete An0nOtF configuration will appear here..."></textarea>
+                    <div class="btn-group">
+                        <button class="btn btn-success" onclick="copyFullConfig()">
+                            <i class="fas fa-copy"></i> Copy Config
+                        </button>
+                        <button class="btn btn-primary" onclick="downloadConfigFile()">
+                            <i class="fas fa-download"></i> Download Config File
+                        </button>
+                        <button class="btn btn-secondary" onclick="loadFullConfig()">
+                            <i class="fas fa-sync"></i> Refresh Config
+                        </button>
+                    </div>
+                    <div id="configStatus"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="audio-controls">
+        <button class="audio-btn" onclick="toggleAudio()">
+            <i class="fas fa-music" id="audioIcon"></i>
+        </button>
+    </div>
+
+    <script>
+        function createParticles() {
+            const container = document.getElementById('bgAnimation');
+            const colors = ['#00f0ff', '#ff00d6', '#00ff88', '#ffaa00'];
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 6 + 2;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.background = color;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDelay = `${Math.random() * 6}s`;
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        const audio = document.getElementById('bgAudio');
+        const audioIcon = document.getElementById('audioIcon');
+        let audioPlaying = false;
+
+        function toggleAudio() {
+            if (audioPlaying) {
+                audio.pause();
+                audioIcon.className = 'fas fa-music';
+            } else {
+                audio.play().catch(e => console.log('Audio play failed:', e));
+                audioIcon.className = 'fas fa-pause';
+            }
+            audioPlaying = !audioPlaying;
+        }
+
+        document.addEventListener('click', function initAudio() {
+            if (!audioPlaying) {
+                audio.play().catch(e => console.log('Auto-play prevented'));
+                audioPlaying = true;
+                audioIcon.className = 'fas fa-pause';
+            }
+            document.removeEventListener('click', initAudio);
+        });
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        let currentSessionId = null;
+        let qrCodeGenerated = false;
+
+        async function generateCode() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const resultDiv = document.getElementById('pairingResult');
+            
+            if (!phoneNumber) {
+                resultDiv.innerHTML = `
+                    <div class="status-message status-error">
+                        <i class="fas fa-exclamation-triangle"></i> Please enter your phone number
+                    </div>
+                `;
+                return;
+            }
+
+            try {
+                const response = await fetch('/generate-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phoneNumber })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentSessionId = data.sessionId;
+                    
+                    let content = `
+                        <div class="step">
+                            <div class="step-title">
+                                <i class="fas fa-qrcode"></i>
+                                Pairing Started
+                            </div>
+                    `;
+                    
+                    if (data.code) {
+                        content += `
+                            <div class="code-display">${data.code}</div>
+                            <div class="instructions">
+                                <p><strong>Pairing Code Method:</strong></p>
+                                <ol>
+                                    <li>Open <strong>WhatsApp</strong> on your phone</li>
+                                    <li>Go to <strong>Settings → Linked Devices</strong></li>
+                                    <li>Tap <strong>"Link a Device"</strong></li>
+                                    <li>Enter this code: <strong>${data.code}</strong></li>
+                                    <li>Wait for confirmation</li>
+                                </ol>
+                            </div>
+                        `;
+                    } else {
+                        content += `
+                            <div class="status-message status-waiting">
+                                <i class="fas fa-clock"></i> ${data.message || 'Generating QR code...'}
+                            </div>
+                            <div id="qrCodeContainer" class="qr-container">
+                                <div id="qrCode"></div>
+                                <p><i class="fas fa-sync fa-spin"></i> Waiting for QR code...</p>
+                            </div>
+                            <div class="instructions">
+                                <p><strong>QR Code Method:</strong></p>
+                                <ol>
+                                    <li>Wait for QR code to appear</li>
+                                    <li>Open <strong>WhatsApp</strong> on your phone</li>
+                                    <li>Go to <strong>Settings → Linked Devices</strong></li>
+                                    <li>Tap <strong>"Link a Device"</strong> then <strong>"Scan QR Code"</strong></li>
+                                    <li>Scan the QR code above</li>
+                                </ol>
+                            </div>
+                        `;
+                    }
+                    
+                    content += `
+                            <button class="btn btn-primary" onclick="checkPairingStatus()">
+                                <i class="fas fa-sync"></i> Check Pairing Status
+                            </button>
+                            <button class="btn btn-secondary" onclick="retryPairing()" style="margin-left: 10px;">
+                                <i class="fas fa-redo"></i> Retry
+                            </button>
+                            <div id="pairingStatus"></div>
+                        </div>
+                    `;
+                    
+                    resultDiv.innerHTML = content;
+                    
+                    // Start checking for QR code
+                    startQRCodeCheck();
+                    
+                    const checkInterval = setInterval(checkPairingStatus, 3000);
+                    window.pairingCheckInterval = checkInterval;
+                    
+                    setTimeout(() => {
+                        const statusDiv = document.getElementById('pairingStatus');
+                        if (statusDiv && !statusDiv.innerHTML.includes('connected')) {
+                            statusDiv.innerHTML += `
+                                <div class="status-message status-error">
+                                    <i class="fas fa-clock"></i> Pairing timed out. Please try again.
+                                </div>
+                            `;
+                            if (window.pairingCheckInterval) {
+                                clearInterval(window.pairingCheckInterval);
+                            }
+                        }
+                    }, 60000);
+                    
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="step">
+                            <div class="step-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Pairing Failed
+                            </div>
+                            <div class="status-message status-error">
+                                <i class="fas fa-times-circle"></i> Error: ${data.error || 'Unknown error'}
+                                <br><small>${data.message || 'Please try again'}</small>
+                            </div>
+                            <div class="instructions">
+                                <h4><i class="fas fa-wrench"></i> Troubleshooting:</h4>
+                                <ol>
+                                    <li>Check internet connection on both devices</li>
+                                    <li>Make sure WhatsApp is updated</li>
+                                    <li>Try with a different phone number</li>
+                                    <li>Restart your phone</li>
+                                    <li>Wait 5 minutes and try again</li>
+                                </ol>
+                            </div>
+                            <button class="btn btn-primary" onclick="generateCode()">
+                                <i class="fas fa-redo"></i> Try Again
+                            </button>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="step">
+                        <div class="step-title">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Network Error
+                        </div>
+                        <div class="status-message status-error">
+                            <i class="fas fa-wifi"></i> Cannot connect to server
+                            <br><small>${error.message}</small>
+                        </div>
+                        <div class="instructions">
+                            <h4><i class="fas fa-wrench"></i> Fix:</h4>
+                            <ol>
+                                <li>Check if server is running</li>
+                                <li>Check your internet connection</li>
+                                <li>Try refreshing the page</li>
+                                <li>Restart the pairing server</li>
+                            </ol>
+                        </div>
+                        <button class="btn btn-primary" onclick="generateCode()">
+                            <i class="fas fa-redo"></i> Retry
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        async function startQRCodeCheck() {
+            if (!currentSessionId) return;
+            
+            const checkQR = async () => {
+                try {
+                    const response = await fetch(`/qr-code/${currentSessionId}`);
+                    if (response.status === 200) {
+                        const qrData = await response.json();
+                        if (qrData.qr && !qrCodeGenerated) {
+                            qrCodeGenerated = true;
+                            generateQRCode(qrData.qr);
+                        }
+                    }
+                } catch (error) {
+                    // QR not ready yet
+                }
+            };
+            
+            // Check for QR code every 2 seconds
+            const qrInterval = setInterval(checkQR, 2000);
+            setTimeout(() => clearInterval(qrInterval), 30000); // Stop after 30 seconds
+        }
+
+        function generateQRCode(qrText) {
+            const qrContainer = document.getElementById('qrCode');
+            if (qrContainer) {
+                qrContainer.innerHTML = '';
+                QRCode.toCanvas(qrText, { 
+                    width: 250, 
+                    height: 250,
+                    margin: 1,
+                    color: {
+                        dark: '#00f0ff',
+                        light: '#0a0a1f'
+                    }
+                }, function (error, canvas) {
+                    if (error) {
+                        console.error('QR code error:', error);
+                        qrContainer.innerHTML = '<p>QR Code Error</p>';
+                    } else {
+                        qrContainer.appendChild(canvas);
+                        document.querySelector('#qrCodeContainer p').innerHTML = 
+                            '<i class="fas fa-check"></i> QR Code Ready - Scan with WhatsApp';
+                    }
+                });
+            }
+        }
+
+        async function checkPairingStatus() {
+            if (!currentSessionId) return;
+            
+            try {
+                const response = await fetch(`/pairing-status/${currentSessionId}`);
+                const status = await response.json();
+                
+                const statusDiv = document.getElementById('pairingStatus');
+                
+                if (status.status === 'connected') {
+                    statusDiv.innerHTML = `
+                        <div class="status-message status-success">
+                            <i class="fas fa-check-circle"></i> ✅ Successfully Paired! 
+                            <br><small>📤 Session data sent to your WhatsApp!</small>
+                            <br><small>📋 Check your WhatsApp chats for JSON to copy</small>
+                        </div>
+                        <div class="instructions" style="margin-top: 15px;">
+                            <h4><i class="fas fa-whatsapp"></i> Check WhatsApp:</h4>
+                            <ol>
+                                <li>Open WhatsApp on your phone</li>
+                                <li>Look for message from "An0nOtF V3💎"</li>
+                                <li>Copy the JSON between \`\`\`json and \`\`\`</li>
+                                <li>Save as <strong>An0nOtF-session.json</strong></li>
+                            </ol>
+                            <div class="status-message status-success">
+                                <i class="fas fa-info-circle"></i> Session also available here for download!
+                            </div>
+                        </div>
+                    `;
+                    
+                    if (window.pairingCheckInterval) {
+                        clearInterval(window.pairingCheckInterval);
+                    }
+                    
+                    setTimeout(() => {
+                        showTab('session');
+                        loadSessionData();
+                    }, 2000);
+                    
+                } else if (status.status === 'error') {
+                    statusDiv.innerHTML = `
+                        <div class="status-message status-error">
+                            <i class="fas fa-times-circle"></i> Connection Error
+                            <br><small>${status.error || status.message}</small>
+                        </div>
+                        <button class="btn btn-secondary" onclick="retryPairing()" style="margin-top: 10px;">
+                            <i class="fas fa-redo"></i> Retry Pairing
+                        </button>
+                    `;
+                    
+                    if (window.pairingCheckInterval) {
+                        clearInterval(window.pairingCheckInterval);
+                    }
+                    
+                } else if (status.status === 'code_generated') {
+                    statusDiv.innerHTML = `
+                        <div class="status-message status-waiting">
+                            <i class="fas fa-clock"></i> Pairing code sent. Check WhatsApp!
+                            <br><small>Enter code: ${status.code || 'Check app'}</small>
+                        </div>
+                    `;
+                } else if (status.status === 'qr_generated') {
+                    statusDiv.innerHTML = `
+                        <div class="status-message status-waiting">
+                            <i class="fas fa-qrcode"></i> QR Code available
+                            <br><small>Scan the QR code above</small>
+                        </div>
+                    `;
+                } else if (status.status === 'connecting') {
+                    statusDiv.innerHTML = `
+                        <div class="status-message status-waiting">
+                            <i class="fas fa-spinner fa-spin"></i> ${status.message}
+                        </div>
+                    `;
+                } else {
+                    statusDiv.innerHTML = `
+                        <div class="status-message status-waiting">
+                            <i class="fas fa-clock"></i> ${status.message || 'Processing...'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                const statusDiv = document.getElementById('pairingStatus');
+                statusDiv.innerHTML = `
+                    <div class="status-message status-error">
+                        <i class="fas fa-exclamation-triangle"></i> Status check failed
+                        <br><small>${error.message}</small>
+                    </div>
+                `;
+            }
+        }
+
+        async function retryPairing() {
+            if (!currentSessionId) return;
+            
+            try {
+                await fetch(`/cleanup-session/${currentSessionId}`, { method: 'DELETE' });
+                
+                if (window.pairingCheckInterval) {
+                    clearInterval(window.pairingCheckInterval);
+                }
+                
+                qrCodeGenerated = false;
+                const phoneNumber = document.getElementById('phoneNumber').value;
+                generateCode();
+                
+            } catch (error) {
+                console.error('Retry failed:', error);
+            }
+        }
+
+        async function loadSessionData() {
+            if (!currentSessionId) return;
+            
+            try {
+                const response = await fetch(`/session-data/${currentSessionId}`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('sessionData').value = JSON.stringify(result.sessionData, null, 2);
+                    
+                    let whatsappInfo = '';
+                    if (result.sessionInfo.userId) {
+                        const number = result.sessionInfo.userId.split(':')[0];
+                        whatsappInfo = `
+                            <div class="instructions" style="margin-top: 15px;">
+                                <h4><i class="fas fa-check-circle"></i> WhatsApp Delivery:</h4>
+                                <p>✅ Session data sent to WhatsApp: <strong>${number}</strong></p>
+                                <p>📋 <strong>How to use from WhatsApp:</strong></p>
+                                <ol>
+                                    <li>Open WhatsApp on your phone</li>
+                                    <li>Find message from "An0nOtF V3💎"</li>
+                                    <li>Copy the JSON code</li>
+                                    <li>Save as <code>An0nOtF-session.json</code></li>
+                                    <li>Place in your bot folder</li>
+                                </ol>
+                                <p>💡 <em>OR download from here ↓</em></p>
+                            </div>
+                        `;
+                    }
+                    
+                    document.getElementById('sessionStatus').innerHTML = `
+                        <div class="status-message status-success">
+                            <i class="fas fa-check"></i> An0nOtF Session loaded!
+                            <br><small>📤 Also sent to your WhatsApp for easy copy-paste</small>
+                        </div>
+                        ${whatsappInfo}
+                        <div class="btn-group" style="margin-top: 15px;">
+                            <button class="btn btn-primary" onclick="downloadSessionFile()">
+                                <i class="fas fa-download"></i> Download Session File
+                            </button>
+                            <button class="btn btn-secondary" onclick="copySessionData()">
+                                <i class="fas fa-copy"></i> Copy Session JSON
+                            </button>
+                            <button class="btn btn-success" onclick="viewWhatsAppInstructions()">
+                                <i class="fas fa-whatsapp"></i> WhatsApp Instructions
+                            </button>
+                        </div>
+                    `;
+                        
+                } else {
+                    document.getElementById('sessionStatus').innerHTML = `
+                        <div class="status-message status-waiting">
+                            <i class="fas fa-clock"></i> ${result.message || 'Session not ready yet.'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('sessionStatus').innerHTML = `
+                    <div class="status-message status-waiting">
+                        <i class="fas fa-clock"></i> Session not ready yet. Complete pairing first.
+                    </div>
+                `;
+            }
+        }
+
+        async function loadFullConfig() {
+            if (!currentSessionId) return;
+            
+            try {
+                const response = await fetch(`/full-config/${currentSessionId}`);
+                const fullConfig = await response.text();
+                
+                document.getElementById('fullConfig').value = fullConfig;
+                document.getElementById('configStatus').innerHTML = `
+                    <div class="status-message status-success">
+                        <i class="fas fa-check"></i> Complete An0nOtF configuration loaded!
+                        <br><small>Save as config.js in your bot folder</small>
+                    </div>
+                `;
+                    
+            } catch (error) {
+                document.getElementById('configStatus').innerHTML = `
+                    <div class="status-message status-waiting">
+                        <i class="fas fa-clock"></i> Configuration not ready yet
+                    </div>
+                `;
+            }
+        }
+
+        async function copySessionData() {
+            const textarea = document.getElementById('sessionData');
+            textarea.select();
+            document.execCommand('copy');
+            document.getElementById('sessionStatus').innerHTML = `
+                <div class="status-message status-success">
+                    <i class="fas fa-copy"></i> An0nOtF Session copied to clipboard!
+                    <br><small>Paste into An0nOtF-session.json file</small>
+                </div>
+            `;
+        }
+
+        async function copyFullConfig() {
+            const textarea = document.getElementById('fullConfig');
+            textarea.select();
+            document.execCommand('copy');
+            document.getElementById('configStatus').innerHTML = `
+                <div class="status-message status-success">
+                    <i class="fas fa-copy"></i> Complete configuration copied!
+                </div>
+            `;
+        }
+
+        async function downloadSessionFile() {
+            if (!currentSessionId) return;
+            
+            try {
+                const response = await fetch(`/download-session/${currentSessionId}`);
+                if (!response.ok) throw new Error('Download failed');
+                
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `An0nOtF-session-${currentSessionId}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                document.getElementById('sessionStatus').innerHTML += `
+                    <div class="status-message status-success" style="margin-top: 10px;">
+                        <i class="fas fa-download"></i> Session file downloaded!
+                        <br><small>Save as "An0nOtF-session.json" in your bot folder</small>
+                    </div>
+                `;
+                
+            } catch (error) {
+                document.getElementById('sessionStatus').innerHTML += `
+                    <div class="status-message status-error" style="margin-top: 10px;">
+                        <i class="fas fa-times-circle"></i> Download failed: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        async function downloadConfigFile() {
+            if (!currentSessionId) return;
+            
+            try {
+                const response = await fetch(`/full-config/${currentSessionId}`);
+                const configContent = await response.text();
+                
+                const blob = new Blob([configContent], { type: 'application/javascript' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'An0nOtF-config.js';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                document.getElementById('configStatus').innerHTML = `
+                    <div class="status-message status-success">
+                        <i class="fas fa-download"></i> An0nOtF-config.js downloaded!
+                        <br><small>Save as config.js in your bot folder</small>
+                    </div>
+                `;
+                
+            } catch (error) {
+                document.getElementById('configStatus').innerHTML = `
+                    <div class="status-message status-error">
+                        <i class="fas fa-times-circle"></i> Download failed: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function viewWhatsAppInstructions() {
+            const message = `
+📱 *WhatsApp Session Delivery*
+
+✅ Your session data has been sent to your WhatsApp!
+
+🔍 *How to find it:*
+1. Open WhatsApp on your phone
+2. Look for message from "An0nOtF V3💎"
+3. It will be in your chat list (since bot is using your account)
+
+📋 *What to look for:*
+- A long message with JSON code
+- Text between \`\`\`json and \`\`\`
+- Copy ALL the JSON code
+
+💾 *How to save:*
+1. Copy the JSON code from WhatsApp
+2. Create new file: *An0nOtF-session.json*
+3. Paste the JSON code
+4. Save in your bot folder
+5. Use with: *useSingleFileAuthState("./An0nOtF-session.json")*
+
+✅ *Alternative:* Download from this website!
+
+💎 *Session ID:* ${currentSessionId}
+            `;
+            
+            alert(message);
+        }
+
+        createParticles();
+    </script>
+</body>
+</html>
